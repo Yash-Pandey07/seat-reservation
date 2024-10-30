@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 3001;
 // Allow specific origin for CORS
 const allowedOrigins = [
   'https://yash-pandey07.github.io',
-  //'http://localhost:5173'
+  // 'http://localhost:5173',
+  // 'https://seat-reservation-6bbv.onrender.com',
 ];
 
 app.options('*', cors());

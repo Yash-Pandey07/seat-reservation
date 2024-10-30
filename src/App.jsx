@@ -46,7 +46,7 @@ const App = () => {
       const response = await axios.post(`${API_BASE_URL}/api/book`, { numSeats: numSeatsToBook });
       setBookedSeats(response.data);
       fetchSeats();
-      //setNumSeatsToBook(0);
+      setNumSeatsToBook(0);
     } catch (error) {
       console.error('Error booking seats:', error);
     }
