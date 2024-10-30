@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 // Directly reference db.json in the same directory
-const dbFilePath = path.join(path.resolve(), 'src', 'server', 'db.json');
+const dbFilePath = path.join(path.resolve(), './db.json');
 
 export function getSeats() {
   const db = JSON.parse(fs.readFileSync(dbFilePath));
