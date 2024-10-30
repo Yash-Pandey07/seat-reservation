@@ -6,7 +6,11 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Allow specific origin for CORS
-const allowedOrigins = ['https://yash-pandey07.github.io/seat-reservation'];
+const allowedOrigins = [
+  'https://yash-pandey07.github.io/seat-reservation',
+  //'http://localhost:5173'
+];
+
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -25,6 +29,7 @@ app.get('/api/seats', (req, res) => {
     const seats = getSeats();
     res.json(seats);
   } catch (error) {
+    console.error(error); // Log the error for debugging
     res.status(500).json({ error: 'Error retrieving seat data' });
   }
 });
@@ -32,7 +37,9 @@ app.get('/api/seats', (req, res) => {
 // Endpoint to book seats
 app.post('/api/book', (req, res) => {
   const { numSeats } = req.body;
-  if (numSeats < 1 || numSeats > 7) {
+
+  // Validate numSeats
+  if (typeof numSeats !== 'number' || numSeats < 1 || numSeats > 7) {
     return res.status(400).json({ error: 'You can only reserve 1 to 7 seats.' });
   }
   
@@ -40,6 +47,7 @@ app.post('/api/book', (req, res) => {
     const bookedSeats = bookSeats(numSeats);
     res.json(bookedSeats);
   } catch (error) {
+    console.error(error); // Log the error for debugging
     res.status(500).json({ error: 'Error booking seats' });
   }
 });
