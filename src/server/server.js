@@ -1,16 +1,19 @@
 import express from 'express';
 import cors from 'cors';
-import { getSeats, bookSeats } from './seatsController.js';
+import fs from 'fs';
+import path from 'path';
+import { getSeats, bookSeats, resetSeats } from './seatsController.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Allow specific origin for CORS
 const allowedOrigins = [
-  'https://yash-pandey07.github.io/seat-reservation',
+  'https://yash-pandey07.github.io',
   //'http://localhost:5173'
 ];
 
+app.options('*', cors());
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -18,7 +21,9 @@ app.use(cors({
     } else {
       callback(new Error('Not allowed by CORS'));
     }
-  }
+  },
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
@@ -29,7 +34,7 @@ app.get('/api/seats', (req, res) => {
     const seats = getSeats();
     res.json(seats);
   } catch (error) {
-    console.error(error); // Log the error for debugging
+    console.error(error);
     res.status(500).json({ error: 'Error retrieving seat data' });
   }
 });
@@ -38,17 +43,27 @@ app.get('/api/seats', (req, res) => {
 app.post('/api/book', (req, res) => {
   const { numSeats } = req.body;
 
-  // Validate numSeats
   if (typeof numSeats !== 'number' || numSeats < 1 || numSeats > 7) {
     return res.status(400).json({ error: 'You can only reserve 1 to 7 seats.' });
   }
-  
+
   try {
     const bookedSeats = bookSeats(numSeats);
     res.json(bookedSeats);
   } catch (error) {
-    console.error(error); // Log the error for debugging
+    console.error(error);
     res.status(500).json({ error: 'Error booking seats' });
+  }
+});
+
+// Endpoint to reset all seats
+app.post('/api/reset', (req, res) => {
+  try {
+    resetSeats();
+    res.json({ message: 'All seats have been reset to unbooked' });
+  } catch (error) {
+    console.error('Error resetting seats:', error);
+    res.status(500).json({ error: 'Error resetting seats' });
   }
 });
 

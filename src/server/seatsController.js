@@ -1,11 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
-// Directly reference db.json in the same directory
-const dbFilePath = path.join(path.resolve(), './db.json');
+const dbFilePath = path.join(path.resolve(), 'db.json');
 
 export function getSeats() {
-  const db = JSON.parse(fs.readFileSync(dbFilePath));
+  const db = JSON.parse(fs.readFileSync(dbFilePath, 'utf8'));
   return db.seats;
 }
 
@@ -16,7 +15,7 @@ export function bookSeats(numSeats) {
 
   for (let row = 0; row < seats.length && seatsToBook > 0; row++) {
     const freeSeats = seats.filter(seat => !seat.booked && seat.row === row + 1);
-    
+
     if (freeSeats.length >= seatsToBook) {
       freeSeats.slice(0, seatsToBook).forEach(seat => {
         seat.booked = true;
@@ -37,4 +36,13 @@ export function bookSeats(numSeats) {
   const db = { seats };
   fs.writeFileSync(dbFilePath, JSON.stringify(db, null, 2));
   return bookedSeats;
+}
+
+export function resetSeats() {
+  const data = fs.readFileSync(dbFilePath, 'utf8');
+  const db = JSON.parse(data);
+
+  db.seats.forEach(seat => (seat.booked = false));
+
+  fs.writeFileSync(dbFilePath, JSON.stringify(db, null, 2));
 }

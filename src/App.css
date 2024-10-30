@@ -7,3 +7,8 @@ input {
   margin: 1rem;
   padding: 0.5rem;
 }
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
