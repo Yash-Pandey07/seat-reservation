@@ -3,6 +3,8 @@ import SeatGrid from './components/SeatGrid';
 import axios from 'axios';
 import './App.css';
 
+const API_BASE_URL = 'https://seat-reservation-6bbv.onrender.com';  // Use Render URL here
+
 const App = () => {
   const [seats, setSeats] = useState([]);
   const [numSeatsToBook, setNumSeatsToBook] = useState(0);
@@ -14,7 +16,7 @@ const App = () => {
 
   const fetchSeats = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/seats');
+      const response = await axios.get(`${API_BASE_URL}/api/seats`);
       setSeats(response.data);
     } catch (error) {
       console.error('Error fetching seats:', error);
@@ -23,7 +25,7 @@ const App = () => {
 
   const handleBookSeats = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/book', { numSeats: numSeatsToBook });
+      const response = await axios.post(`${API_BASE_URL}/api/seats`, { numSeats: numSeatsToBook });
       setBookedSeats(response.data);
       fetchSeats(); // Refresh seats after booking
     } catch (error) {

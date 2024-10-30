@@ -4,37 +4,37 @@
       "id": "1",
       "row": 1,
       "column": 1,
-      "booked": true
+      "booked": false
     },
     {
       "id": "2",
       "row": 1,
       "column": 2,
-      "booked": true
+      "booked": false
     },
     {
       "id": "3",
       "row": 1,
       "column": 3,
-      "booked": true
+      "booked": false
     },
     {
       "id": "4",
       "row": 1,
       "column": 4,
-      "booked": true
+      "booked": false
     },
     {
       "id": "5",
       "row": 1,
       "column": 5,
-      "booked": true
+      "booked": false
     },
     {
       "id": "6",
       "row": 1,
       "column": 6,
-      "booked": true
+      "booked": false
     },
     {
       "id": "7",

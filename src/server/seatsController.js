@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const dbFilePath = path.join(path.resolve(), './db.json');
+const dbFilePath = path.join(path.resolve(), 'server', 'db.json');  // Update to correct path
 
 export function getSeats() {
   const db = JSON.parse(fs.readFileSync(dbFilePath));

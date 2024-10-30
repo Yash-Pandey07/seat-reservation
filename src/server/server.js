@@ -5,6 +5,8 @@ import { getSeats, bookSeats } from './seatsController.js';
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Allow specific origin for CORS 
+const allowedOrigins = ['https://yash-pandey07.github.io/seat-reservation/'];
 app.use(cors());
 app.use(express.json());
 
@@ -21,4 +23,5 @@ app.post('/api/book', (req, res) => {
   res.json(bookedSeats);
 });
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+// Start the server
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
