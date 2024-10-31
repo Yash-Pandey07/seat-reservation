@@ -3,7 +3,7 @@ import SeatGrid from './components/SeatGrid';
 import axios from 'axios';
 import './App.css';
 
-const API_BASE_URL = 'https://seat-reservation-6bbv.onrender.com';  // Use Render URL here
+const API_BASE_URL = 'https://seat-reservation-6bbv.onrender.com';
 //const API_BASE_URL = 'http://localhost:3001';
 
 const App = () => {
@@ -11,10 +11,23 @@ const App = () => {
   const [numSeatsToBook, setNumSeatsToBook] = useState(0);
   const [bookedSeats, setBookedSeats] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isBackendDown, setIsBackendDown] = useState(false);
 
   useEffect(() => {
+    checkBackendStatus();
     fetchSeats();
   }, []);
+
+   // Check server status to display the banner if the backend is down
+   const checkBackendStatus = async () => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/api/seats`);
+      if (response.status === 200) setIsBackendDown(false);
+    } catch (error) {
+      console.error('Backend may be offline:', error);
+      setIsBackendDown(true);
+    }
+  };
 
   const fetchSeats = async () => {
     try {
@@ -68,6 +81,17 @@ const App = () => {
 
   return (
     <div className="App">
+      {isBackendDown && (
+        <div className="banner">
+          <p>
+            <strong>Notice:</strong> If seat information is not displayed, our backend server may be temporarily offline. Please feel free to reach out so we can promptly address the issue.
+            <br />
+            Connect with me on{' '}
+            <a href="https://github.com/Yash-Pandey07" target="_blank" rel="noopener noreferrer">GitHub</a> or{' '}
+            <a href="https://www.linkedin.com/in/yashpandey7/" target="_blank" rel="noopener noreferrer">LinkedIn</a> for updates and support.
+          </p>
+        </div>
+      )}
       <h1>Train Seat Reservation</h1>
       <input
         type="number"
