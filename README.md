@@ -2,6 +2,31 @@
 
 A full-stack train seat reservation application using React, Express, and Node.js that allows users to book up to 7 seats at a time in an 80-seat train coach.
 
+## try it online
+[seat-reservation](https://yash-pandey07.github.io/seat-reservation/)
+
+## Guide to use it !
+https://github.com/user-attachments/assets/373b0f26-e01d-43f8-9e68-11b6d94fb594
+
+## Home Page
+![image](https://github.com/user-attachments/assets/cac555ed-f108-4243-9ef9-2ecbf0872c46)
+
+## Reserve seats
+![image](https://github.com/user-attachments/assets/96aaf1fd-2641-41e0-8faf-8b410dfad38e)
+
+## Input Validations
+![image](https://github.com/user-attachments/assets/ddb92a4f-d3b8-4267-a441-3ce505bddf7a)
+
+## Get reserve seats in a order
+![image](https://github.com/user-attachments/assets/188b3ce8-4bd4-4b9a-8873-a18d0a95b81e)
+
+##  All seats are booked so no more seats are booked
+![image](https://github.com/user-attachments/assets/b1d13a8e-f520-4d96-add2-c6c408d02fac)
+
+# Reset seats
+![image](https://github.com/user-attachments/assets/82306481-8b3c-4382-adeb-2b16d77a7d31)
+![image](https://github.com/user-attachments/assets/be0ec4ff-882b-4b27-a5b4-823d6af0d945)
+
 ## Features
 
 - Allows booking of 1 to 7 seats at a time.
