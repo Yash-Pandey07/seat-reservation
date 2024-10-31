@@ -54,4 +54,7 @@ https://github.com/user-attachments/assets/19d8b693-1559-4bca-9537-d9a15460d317
 git clone https://github.com/your-username/seat-reservation.git
 cd seat-reservation
 
+## Backend server at
+https://seat-reservation-6bbv.onrender.com/api/seats
 
+using [Render.com](https://dashboard.render.com/) to upload server file .
