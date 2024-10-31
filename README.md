@@ -5,6 +5,8 @@ A full-stack train seat reservation application using React, Express, and Node.j
 ## try it online
 [seat-reservation](https://yash-pandey07.github.io/seat-reservation/)
 
+## Guide to use it !
+https://github.com/user-attachments/assets/373b0f26-e01d-43f8-9e68-11b6d94fb594
 
 ## Home Page
 ![image](https://github.com/user-attachments/assets/cac555ed-f108-4243-9ef9-2ecbf0872c46)
