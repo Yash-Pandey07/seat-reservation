@@ -23,7 +23,7 @@ https://github.com/user-attachments/assets/19d8b693-1559-4bca-9537-d9a15460d317
 ![image](https://github.com/user-attachments/assets/188b3ce8-4bd4-4b9a-8873-a18d0a95b81e)
 
 ##  All seats are booked so no more seats are booked
-![image](https://github.com/user-attachments/assets/b1d13a8e-f520-4d96-add2-c6c408d02fac)
+![image](https://github.com/user-attachments/assets/b8174c19-0efc-4ed6-ae7d-b3019c489138)
 
 ## Reset seats
 ![image](https://github.com/user-attachments/assets/82306481-8b3c-4382-adeb-2b16d77a7d31)
