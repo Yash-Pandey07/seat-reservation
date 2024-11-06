@@ -30,3 +30,34 @@ input {
 .banner a:hover {
   color: #004d99;
 }
+
+.footer {
+  background-color: #151515;
+  color: #e0e0e0;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+  border-radius: 5px;
+  line-height: 1.5;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #4caf50; /* Change to any color that contrasts well */
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.footer a:hover {
+  color: #81c784; /* Slightly lighter shade on hover */
+  text-decoration: underline;
+}
+
+.footer strong {
+  color: #ffeb3b; /* Accent color for 'Notice' */
+}
