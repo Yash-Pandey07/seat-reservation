@@ -106,7 +106,7 @@ const App = () => {
       <h3>Booked Seats: {bookedSeats.map(seat => `Row ${seat.row} - Seat ${seat.column}`).join(', ')}</h3>
       <div className="footer">
           <p>
-          <strong>Notice:</strong> Notice: Seat information may take a moment to load as our backend server response is currently delayed. If you don’t see the seat details within a minute, please feel free to reach out. We’re here to assist you!
+          <strong>Notice:</strong> Seat information may take a moment to load as our backend server response is currently delayed. If you don’t see the seat details within a minute, please feel free to reach out. We’re here to assist you!
             <br />
             Connect with me on{' '}
             <a href="https://github.com/Yash-Pandey07" target="_blank" rel="noopener noreferrer">GitHub</a> or{' '}
